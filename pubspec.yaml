@@ -1,0 +1,44 @@
+name: weather_zone
+description: An Weather app in flutter
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.1
+  # Allows us to easily use custom fonts from Google Fonts.
+  google_fonts: ^2.0.0
+  # Used for state management.
+  provider: ^5.0.0
+  # Used for http calls
+  http: ^0.13.0
+  # Used for location
+  location: ^4.1.1
+  # Used for date format
+  intl: ^0.17.0
+  # for weather related icons
+  weather_icons: ^3.0.0-nullsafety.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+#  integration_test:
+#    sdk: flutter
+
+
+flutter:
+
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
