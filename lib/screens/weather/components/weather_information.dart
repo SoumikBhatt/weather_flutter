@@ -5,10 +5,10 @@ class WeatherInformation extends StatelessWidget {
   final IconData iconData;
 
   const WeatherInformation(
-      {Key key,
-      @required this.description,
-      @required this.temperature,
-      @required this.iconData})
+      {Key? key,
+      required this.description,
+      required this.temperature,
+      required this.iconData})
       : super(key: key);
 
   @override

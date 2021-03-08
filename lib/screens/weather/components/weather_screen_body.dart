@@ -16,7 +16,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
 
   Location _location = Location();
-  LocationData _locationData;
+  LocationData? _locationData;
 
   @override
   void initState() {
@@ -24,7 +24,7 @@ class _BodyState extends State<Body> {
   }
 
 
-  Future<LocationData> _getLocation() async {
+  Future<LocationData?> _getLocation() async {
     bool _serviceEnabled;
     PermissionStatus _permissionGranted;
 
@@ -55,16 +55,16 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<LocationData>(
+    return FutureBuilder<LocationData?>(
       future: _getLocation(),
       builder: (context,snapshot){
         if(!snapshot.hasData) {
           return Center(child: CircularProgressIndicator(),);
         } else if(snapshot.hasError) {
-          return Center(child: Text(snapshot.error),);
+          return Center(child: Text(snapshot.error as String),);
         } else {
 
-          final location = snapshot.data;
+          final location = snapshot.data!;
 
           return SafeArea(
             child: SizedBox(

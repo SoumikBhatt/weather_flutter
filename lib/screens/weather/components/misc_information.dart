@@ -7,11 +7,11 @@ class MiscInformation extends StatelessWidget {
   final int sunrise, sunset, humidity;
 
   const MiscInformation(
-      {Key key,
-      @required this.windSpeed,
-      @required this.sunrise,
-      @required this.sunset,
-      @required this.humidity})
+      {Key? key,
+      required this.windSpeed,
+      required this.sunrise,
+      required this.sunset,
+      required this.humidity})
       : super(key: key);
 
   @override
