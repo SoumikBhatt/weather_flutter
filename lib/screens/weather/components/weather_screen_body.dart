@@ -120,8 +120,11 @@ class _BodyState extends State<Body> {
                     ),
                     ForecastHorizontal(),
                     Padding(
-                      child: Divider(
-                        color: Colors.grey,
+                      child: SizedBox(
+                        width: SizeConfig.screenWidth!*0.5,
+                        child: Divider(
+                          color: Colors.grey,
+                        ),
                       ),
                       padding: EdgeInsets.all(10),
                     ),

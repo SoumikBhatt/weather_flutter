@@ -20,9 +20,9 @@ class ValueTile extends StatelessWidget {
         ),
         this.iconData != null
             ? Icon(
-          iconData,
-          size: 20,
-        )
+                iconData,
+                size: 20,
+              )
             : Container(),
         SizedBox(
           height: 10,

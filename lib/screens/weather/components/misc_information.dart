@@ -18,7 +18,11 @@ class MiscInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-      ValueTile("wind speed", windSpeed,iconData: WeatherIcons.wind,),
+      ValueTile(
+        "wind speed",
+        windSpeed,
+        iconData: WeatherIcons.wind,
+      ),
       Padding(
         padding: const EdgeInsets.only(left: 15, right: 15),
         child: Center(
@@ -29,9 +33,11 @@ class MiscInformation extends StatelessWidget {
         )),
       ),
       ValueTile(
-          "sunrise",
-          DateFormat('h:m a')
-              .format(DateTime.fromMillisecondsSinceEpoch(sunrise * 1000)),iconData: WeatherIcons.sunrise,),
+        "sunrise",
+        DateFormat('h:m a')
+            .format(DateTime.fromMillisecondsSinceEpoch(sunrise * 1000)),
+        iconData: WeatherIcons.sunrise,
+      ),
       Padding(
         padding: const EdgeInsets.only(left: 15, right: 15),
         child: Center(
@@ -42,9 +48,11 @@ class MiscInformation extends StatelessWidget {
         )),
       ),
       ValueTile(
-          "sunset",
-          DateFormat('h:m a')
-              .format(DateTime.fromMillisecondsSinceEpoch(sunset * 1000)),iconData: WeatherIcons.sunrise,),
+        "sunset",
+        DateFormat('h:m a')
+            .format(DateTime.fromMillisecondsSinceEpoch(sunset * 1000)),
+        iconData: WeatherIcons.sunrise,
+      ),
       Padding(
         padding: const EdgeInsets.only(left: 15, right: 15),
         child: Center(
@@ -54,7 +62,11 @@ class MiscInformation extends StatelessWidget {
           color: Colors.grey,
         )),
       ),
-      ValueTile("humidity", '$humidity%',iconData: WeatherIcons.humidity,),
+      ValueTile(
+        "humidity",
+        '$humidity%',
+        iconData: WeatherIcons.humidity,
+      ),
     ]);
   }
 }
