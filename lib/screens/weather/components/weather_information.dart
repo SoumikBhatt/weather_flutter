@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_zone/utils/size_config.dart';
 
 class WeatherInformation extends StatelessWidget {
   final String description, temperature;
@@ -15,6 +16,22 @@ class WeatherInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Icon(
+          iconData,
+          // color: Theme.of(context).accentColor,
+          size: 96,
+        ),
+        SizedBox(
+          height: SizeConfig.screenHeight * 0.05,
+        ),
+        Text(
+          '$temperature°c',
+          style: TextStyle(
+            fontSize: 100,
+            fontWeight: FontWeight.w100,
+            // color: Theme.of(context).accentColor,
+          ),
+        ),
         Text(
           description.toUpperCase(),
           style: TextStyle(
@@ -25,22 +42,6 @@ class WeatherInformation extends StatelessWidget {
         ),
         SizedBox(
           height: 20,
-        ),
-        Icon(
-          iconData,
-          // color: Theme.of(context).accentColor,
-          size: 65,
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Text(
-          '$temperature°c',
-          style: TextStyle(
-            fontSize: 100,
-            fontWeight: FontWeight.w100,
-            // color: Theme.of(context).accentColor,
-          ),
         ),
       ],
     );

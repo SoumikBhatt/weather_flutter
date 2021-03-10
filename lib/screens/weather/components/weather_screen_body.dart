@@ -14,7 +14,6 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-
   Location _location = Location();
   LocationData? _locationData;
 
@@ -23,16 +22,15 @@ class _BodyState extends State<Body> {
     super.initState();
   }
 
-
   Future<LocationData?> _getLocation() async {
     bool _serviceEnabled;
     PermissionStatus _permissionGranted;
 
     _serviceEnabled = await _location.serviceEnabled();
 
-    if(!_serviceEnabled) {
+    if (!_serviceEnabled) {
       _serviceEnabled = await _location.requestService();
-      if(!_serviceEnabled) {
+      if (!_serviceEnabled) {
         print('_BodyState._getLocation: Location Service not enabled');
         return null;
       }
@@ -57,13 +55,16 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return FutureBuilder<LocationData?>(
       future: _getLocation(),
-      builder: (context,snapshot){
-        if(!snapshot.hasData) {
-          return Center(child: CircularProgressIndicator(),);
-        } else if(snapshot.hasError) {
-          return Center(child: Text(snapshot.error as String),);
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        } else if (snapshot.hasError) {
+          return Center(
+            child: Text(snapshot.error as String),
+          );
         } else {
-
           final location = snapshot.data!;
 
           return SafeArea(
@@ -77,21 +78,21 @@ class _BodyState extends State<Body> {
                       height: SizeConfig.screenHeight * 0.025,
                     ),
                     Text(
-                      DateFormat('EEEE, d MMMM yyyy').format(DateTime.now()),
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    SizedBox(
-                      height: SizeConfig.screenHeight * 0.10,
-                    ),
-                    Text(
-                      'Lat: ${location.latitude} Ln: ${location.longitude}',
+                      'Mountain View',
                       style: TextStyle(
                           fontWeight: FontWeight.w900,
                           letterSpacing: 5,
                           fontSize: 25),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: SizeConfig.screenHeight * 0.015,
+                    ),
+                    Text(
+                      DateFormat('EEEE, d MMMM yyyy').format(DateTime.now()),
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    SizedBox(
+                      height: SizeConfig.screenHeight * 0.025,
                     ),
                     WeatherInformation(
                       description: 'Clear sky',
@@ -106,16 +107,16 @@ class _BodyState extends State<Body> {
                           padding: const EdgeInsets.only(left: 15, right: 15),
                           child: Center(
                               child: Container(
-                                width: 1,
-                                height: 30,
-                                color: Colors.grey,
-                              )),
+                            width: 1,
+                            height: 30,
+                            color: Colors.grey,
+                          )),
                         ),
                         ValueTile("min", '16°'),
                       ],
                     ),
                     SizedBox(
-                      height: SizeConfig.screenHeight * 0.08,
+                      height: SizeConfig.screenHeight * 0.05,
                     ),
                     ForecastHorizontal(),
                     Padding(
@@ -130,6 +131,9 @@ class _BodyState extends State<Body> {
                       sunrise: 1200,
                       sunset: 992500,
                     ),
+                    SizedBox(
+                      height: 20,
+                    )
                   ],
                 ),
               ),
