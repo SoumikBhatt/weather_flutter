@@ -1,26 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:weather_icons/weather_icons.dart';
 import 'package:weather_zone/utils/size_config.dart';
 
 class WeatherInformation extends StatelessWidget {
   final String description, temperature;
-  final IconData iconData;
+  final IconData? iconData;
+  final String? icon;
 
   const WeatherInformation(
       {Key? key,
       required this.description,
       required this.temperature,
-      required this.iconData})
+      this.iconData,
+      this.icon})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Icon(
-          iconData,
-          // color: Theme.of(context).accentColor,
-          size: 96,
-        ),
+        icon == null
+            ? Icon(
+                iconData,
+                // color: Theme.of(context).accentColor,
+                size: 96,
+              )
+            : Image.network(
+                "https://openweathermap.org/img/w/$icon.png",
+                width: 96,
+                height: 96,
+              ),
         SizedBox(
           height: SizeConfig.screenHeight * 0.05,
         ),
