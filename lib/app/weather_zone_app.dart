@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:weather_zone/app/dark_theme_provider.dart';
 import 'package:weather_zone/app/routes.dart';
 import 'package:weather_zone/app/theme.dart';
 import 'package:weather_zone/backend/api_service.dart';
@@ -12,12 +13,14 @@ class WeatherZoneApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeNotifier = Provider.of<DarkThemeProvider>(context);
+    print('WeatherZoneApp.build: Dark Theme: ${themeNotifier.darkTheme}');
     return Provider.value(
       value: apiService,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: AppTheme.light(),
-        darkTheme: AppTheme.dark(),
+        theme: themeNotifier.darkTheme ? AppTheme.dark() : AppTheme.light(),
+        // darkTheme: AppTheme.dark(),
         routes: routes,
         initialRoute: WeatherScreen.routeName,
       ),
