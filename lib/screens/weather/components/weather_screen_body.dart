@@ -55,7 +55,7 @@ class _BodyState extends State<Body> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: SizeConfig.screenHeight * 0.02,
+                      height: SizeConfig.screenHeight * 0.005,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 26),
@@ -65,9 +65,10 @@ class _BodyState extends State<Body> {
                           IconButton(
                             icon: themeNotifier.darkTheme
                                 ? Image.asset(
-                                    'assets/theme_icons/light.png',color: Colors.white,)
-                                : Image.asset(
-                                    'assets/theme_icons/dark.png'),
+                                    'assets/theme_icons/light.png',
+                                    color: Colors.white,
+                                  )
+                                : Image.asset('assets/theme_icons/dark.png'),
                             onPressed: () {
                               themeNotifier.darkTheme
                                   ? themeNotifier.darkTheme = false
@@ -149,26 +150,5 @@ class _BodyState extends State<Body> {
         }
       },
     );
-
-    /*return FutureBuilder<LocationData?>(
-        future: _getLocation(),
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (snapshot.hasError) {
-            return Center(
-              child: Text(snapshot.error.toString()),
-            );
-          } else {
-            final location = snapshot.data!;
-
-            print('_BodyState.build: Lat: ${location.latitude} :: Lon: ${location.longitude}');
-
-
-          }
-        },
-      );*/
   }
 }
