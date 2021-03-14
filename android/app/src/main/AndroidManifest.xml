@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.soumik.weather_zone">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="weather_zone"
         android:icon="@mipmap/ic_launcher">

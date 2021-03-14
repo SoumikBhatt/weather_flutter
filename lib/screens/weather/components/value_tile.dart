@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ValueTile extends StatelessWidget {
   final String label;
   final String value;
-  final IconData iconData;
+  final IconData? iconData;
 
   ValueTile(this.label, this.value, {this.iconData});
 
@@ -20,9 +20,9 @@ class ValueTile extends StatelessWidget {
         ),
         this.iconData != null
             ? Icon(
-          iconData,
-          size: 20,
-        )
+                iconData,
+                size: 20,
+              )
             : Container(),
         SizedBox(
           height: 10,

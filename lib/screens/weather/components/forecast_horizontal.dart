@@ -7,7 +7,7 @@ import 'package:weather_zone/screens/weather/components/value_tile.dart';
 /// Shows DateTime, Weather Condition icon and Temperature
 class ForecastHorizontal extends StatelessWidget {
   const ForecastHorizontal({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
 
